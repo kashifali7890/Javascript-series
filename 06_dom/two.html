@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM </title>
+    <style>
+        .container {
+            background-color: teal;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 450px;
+            padding: 10px;
+            row-gap: 10px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <ul id = "ul" class="language">
+        <li>javascript</li>
+    </ul>
+
+    <h1 id ="heading">This IS H1</h1>
+
+    <div class="container">
+        <div class="box" id="box-1">box-1</div>
+        <div class="box" id="box-2">box-2</div>
+        <div class="box" id="box-3">box-3</div>
+        <div class="box" id="box-4">box-4</div>
+    </div>
+    
+</body>
+<script>
+    //adding li in javascript
+
+    //traditional way
+    function addLanguage (langname){
+        const li = document.createElement('li');
+        li.innerHTML = ` ${langname}`
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addLanguage("python");
+    addLanguage("java");
+// opti mised way
+    function addoptiLanguage (langname){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+    addoptiLanguage('golang')
+
+    // edit the value
+    const secondLang =  document.querySelector("li:nth-child(1)")
+    //secondLang.innerHTML = "Mozo"
+   const newli =  document.createElement('li')
+   newli.textContent = "mojo"
+   secondLang.replaceWith(newli)
+
+   //edit
+
+   const firstLang = document.querySelector("li:first-child")
+   firstLang.outerHTML = '<li>Typescript</li>'
+   
+   // remove
+   const lastLang = document.querySelector('li:last-child')
+   lastLang.remove()
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+
+</head>
+<body style="background-color: #414141; color: aliceblue;"> 
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+
+            <li><img width="200px" id="prayer" src="images/prayer.jpg" alt="photoshop"></li>
+            
+            <li><img width="200px" id="japan" src="images/japan.jpg.jpg" alt=""></li>
+           
+            <li><img width="200px" id="river" src="images/river.jpg.jpg" alt=""></li>
+            
+            <li><img width="200px" id="owl" src="images/owl.jpg.jpg" alt=""></li>
+            
+            <li><a style="color: aliceblue;"href= "https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+    <script>
+// document.getElementById('owl').onclick = function(){
+//     alert('You clicked on the owl image');
+// }
+//attachEvent()
+        //jQuery - on
+        // document.getElementById('owl').addEventListener('click', function(){
+        //     alert('You clicked on the owl image');
+        // })
+
+        // document.getElementById('images').addEventListener('click', function(e){
+        //     console.log("clicked inside the ul");
+            
+        // }, false);
+
+        // document.getElementById('owl').addEventListener('click', function(e){
+        //     console.log("clicked owl");
+        //     e.stopPropagation(); //to stop event propogation
+            
+        // }, false);
+
+        // document.getElementById('google').addEventListener('click', function(e){
+        //      e.preventDefault()
+        //      e.stopPropagation()
+        //     console.log("google clicked");
+            
+          
+        // }, false)
+            
+        document.querySelector('#images').addEventListener('click', function(e){
+            console.log(e.target.parentNode.tagName);
+            if(e.target.tagName === 'IMG'){
+                
+                console.log(e.target.id);
+                
+                let removeIt = e.target.parentNode
+                removeIt.parentNode.removeChild(removeIt)
+                removeIt.remove() // to remove the itme on click event
+            }
+           
+        }, false)
+
+
+
+        // events propogations , event bubbling and event capturing
+        // type , timestamp, defaultPrevented, events
+        // target, toElement, secElement, currentTarget events
+        // clientX, clientY, screenX, screenY, events
+        // altkey, ctrlkey, shiftkey, keycode events
+
+    </script>
+</body>
+</html>
